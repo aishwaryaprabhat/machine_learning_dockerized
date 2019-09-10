@@ -1,0 +1,7 @@
+FROM continuumio/anaconda3:4.4.0
+MAINTAINER aish, aish.prabhat@shopee.com
+COPY . random_forest_dockerized/
+EXPOSE 5000
+WORKDIR random_forest_dockerized/
+RUN pip install -r requirements.txt
+CMD python predict_api.py
