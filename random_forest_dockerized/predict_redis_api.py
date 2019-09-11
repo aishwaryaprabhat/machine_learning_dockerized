@@ -54,10 +54,10 @@ def predict_iris():
     prediction = model.predict(np.array([[s_length, s_width, p_length, p_width]]))
     # print(prediction)
 
-    prediction_index+=1
     r = redis.StrictRedis(host=redis_host, port=redis_port, password=redis_password, decode_responses=True)
     r.set(str(prediction_index),str(prediction))
-
+    prediction_index+=1
+    
     print("Returning Prediction")
     return str(prediction)
 
