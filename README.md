@@ -1,3 +1,9 @@
+# Machine Learning Dockerized
+
+![](readme_images/dockergif.gif)
+
+
+
 ## Dockerizing a Random Forest Model
 
 ### Description
