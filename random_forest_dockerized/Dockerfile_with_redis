@@ -4,7 +4,4 @@ COPY . random_forest_dockerized/
 EXPOSE 5000
 WORKDIR random_forest_dockerized/
 RUN pip install -r requirements.txt
-CMD python predict_api.py
-
-
-
+CMD python predict_redis_api.py

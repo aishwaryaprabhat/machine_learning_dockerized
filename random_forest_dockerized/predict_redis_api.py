@@ -12,6 +12,12 @@ app = Flask(__name__)
 swagger = Swagger(app)
 
 
+redis_host = "redis-server"
+redis_port = 6379
+redis_password = ""
+
+prediction_index = 0
+
 @app.route('/predict')
 def predict_iris():
     """Example endpoint returning a prediction of iris
@@ -38,6 +44,7 @@ def predict_iris():
         description: Index of predicted class 
 
     """
+    global prediction_index
     s_length = float(request.args.get("s_length"))
     s_width = float(request.args.get("s_width"))
     p_length = float(request.args.get("p_length"))
@@ -46,6 +53,10 @@ def predict_iris():
     print("Predicting!")
     prediction = model.predict(np.array([[s_length, s_width, p_length, p_width]]))
     # print(prediction)
+
+    prediction_index+=1
+    r = redis.StrictRedis(host=redis_host, port=redis_port, password=redis_password, decode_responses=True)
+    r.set(str(prediction_index),str(prediction))
 
     print("Returning Prediction")
     return str(prediction)
@@ -66,18 +77,3 @@ def predict_iris_file():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
