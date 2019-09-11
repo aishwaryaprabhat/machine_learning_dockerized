@@ -438,7 +438,9 @@ You should see something like this:
 	- Run `get 0` and you will see the first prediction made by the app
 
 #### docker-compose down
+![](readme_images/down.png)
 
+As you can see there is a line saying 'Removing network random_forest_docerized_default' which is in accordance with the idea that containers created with the same docker-compose file share a network.
 
 
     
