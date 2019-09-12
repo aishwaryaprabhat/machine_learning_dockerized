@@ -14,7 +14,7 @@ This git repo serves as a tutorial, guide to best practices [BP] and cheatsheet 
 - Containerize the Flask App using Docker
 - Rebuild the App container to write some data to another container hosting Redis (using Docker Compose)
 
-### Aboud the technologies
+### About the technologies
 
 - Docker: an ecosystem/platform around creating and running containers
 - Redis: (Remote Dictionary Server) an in-memory data structure store, used as a database, cache and message broker.
@@ -135,7 +135,7 @@ if __name__ == '__main__':
 #### What happens to a docker file?
 ![](readme_images/whathappenstodockerfile.png)
 
-- Dockerfile is a file which we create. It holds onto all the compexity and is the tamplate based on which a docker image is created.
+- Dockerfile is a file which we create. It holds onto all the compexity and is the template based on which a docker image is created.
 - Through Docker Client (CLI) we pass the dockerfile to the Docker Server
 	- Docker Client: A command-line interface to which we issue commands
 - Docker Server creates the usable docker image based on the docker file
